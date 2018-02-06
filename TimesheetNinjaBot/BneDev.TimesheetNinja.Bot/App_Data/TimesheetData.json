@@ -1,0 +1,424 @@
+﻿{
+  "Timesheets": [
+    {
+      "EnterpriseId": "dorothy.mctimesheety",
+      "PeriodEnd": "2017-12-15",
+      "Status": "Processed",
+      "ScheduledWorkHours": 88.0,
+      "Tasks": [
+        {
+          "TaskNumber": "AMA9903B",
+          "TaskDescription": "LexCorp Market Development",
+          "TimeEntries": [
+            {
+              "Date": "2017-12-01",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2017-12-04",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2017-12-05",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2017-12-06",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2017-12-07",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2017-12-08",
+              "Hours": 8.0
+            }
+          ]
+        },
+        {
+          "TaskNumber": "AMG7A007",
+          "TaskDescription": "Wayne Enterprises - new Fusion Power",
+          "TimeEntries": [
+            {
+              "Date": "2017-12-11",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2017-12-12",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2017-12-13",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2017-12-14",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2017-12-15",
+              "Hours": 8.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "EnterpriseId": "dorothy.mctimesheety",
+      "PeriodEnd": "2017-12-31",
+      "Status": "Processed",
+      "ScheduledWorkHours": 80.0,
+      "Tasks": [
+        {
+          "TaskNumber": "A304515",
+          "TaskDescription": "Queen Industries - Arrows",
+          "TimeEntries": [
+            {
+              "Date": "2017-12-18",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2017-12-19",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2017-12-20",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2017-12-21",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2017-12-22",
+              "Hours": 8.0
+            }
+          ]
+        },
+        {
+          "TaskNumber": "050Z01",
+          "TaskDescription": "Public Holiday",
+          "TimeEntries": [
+            {
+              "Date": "2017-12-25",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2017-12-26",
+              "Hours": 8.0
+            }
+          ]
+        },
+        {
+          "TaskNumber": "N6662111",
+          "TaskDescription": "Australian CTO Office",
+          "TimeEntries": [
+            {
+              "Date": "2017-12-27",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2017-12-28",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2017-12-29",
+              "Hours": 8.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "EnterpriseId": "dorothy.mctimesheety",
+      "PeriodEnd": "2018-01-15",
+      "Status": "Processed",
+      "ScheduledWorkHours": 80.0,
+      "Tasks": [
+        {
+          "TaskNumber": "OL1NK1",
+          "TaskDescription": "Project Galahad (LinkOne)",
+          "TimeEntries": [
+            {
+              "Date": "2018-01-02",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2018-01-03",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2018-01-04",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2018-01-05",
+              "Hours": 4.0
+            }
+          ]
+        },
+        {
+          "TaskNumber": "050Z01",
+          "TaskDescription": "Public Holiday",
+          "TimeEntries": [
+            {
+              "Date": "2018-01-01",
+              "Hours": 8.0
+            }
+          ]
+        },
+        {
+          "TaskNumber": "913Z01",
+          "TaskDescription": "Flex Leave",
+          "TimeEntries": [
+            {
+              "Date": "2018-01-05",
+              "Hours": 4.0
+            }
+          ]
+        },
+        {
+          "TaskNumber": "AMG7A007",
+          "TaskDescription": "Wayne Enterprises - new Fusion Power",
+          "TimeEntries": [
+            {
+              "Date": "2018-01-08",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2018-01-09",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2018-01-10",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2018-01-11",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2018-01-12",
+              "Hours": 8.0
+            }
+          ]
+        },
+        {
+          "TaskNumber": "B3010171",
+          "TaskDescription": "Conference Presenter",
+          "TimeEntries": [
+            {
+              "Date": "2018-01-15",
+              "Hours": 8.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "EnterpriseId": "dorothy.mctimesheety",
+      "PeriodEnd": "2018-01-31",
+      "Status": "Draft",
+      "ScheduledWorkHours": 80.0,
+      "Tasks": [
+        {
+          "TaskNumber": "050Z01",
+          "TaskDescription": "Public Holiday",
+          "TimeEntries": [
+            {
+              "Date": "2018-01-26",
+              "Hours": 8.0
+            }
+          ]
+        },
+        {
+          "TaskNumber": "BMWJU099",
+          "TaskDescription": "RAD Building Cool Stuff",
+          "TimeEntries": [
+            {
+              "Date": "2018-01-16",
+              "Hours": 8.0
+            },
+            {
+              "Date": "2018-01-17",
+              "Hours": 8.0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ExpenseSheets": [
+    {
+      "PeriodEnd": "2017-12-15",
+      "Expenses": [
+        {
+          "FromDate": "2017-12-01",
+          "ToDate": "2017-12-07",
+          "ApprovalStatus": "paid",
+          "Description": "Hotel - Double Tree by Hilton",
+          "TotalAmount": 1000.0
+        }
+      ]
+    },
+    {
+      "PeriodEnd": "2017-12-31",
+      "Expenses": [
+        {
+          "FromDate": "2018-12-16",
+          "ToDate": null,
+          "ApprovalStatus": "paid",
+          "Description": "Uber (office <--> client)",
+          "TotalAmount":  42.0
+        }
+      ]
+    },
+    {
+      "PeriodEnd": "2018-01-15",
+      "Expenses": [
+        {
+          "FromDate": "2018-01-05",
+          "ToDate": null,
+          "ApprovalStatus": "paid",
+          "Description": "Career Adviser Coffee",
+          "TotalAmount": 23.0
+        },
+        {
+          "FromDate": "2018-01-01",
+          "ToDate": "2018-01-07",
+          "ApprovalStatus": "paid",
+          "Description": "Hotel - Sheraton - Melbourne",
+          "TotalAmount": 2100.0
+        },
+        {
+          "FromDate": "2018-01-14",
+          "ToDate": "2018-01-14",
+          "ApprovalStatus": "approved",
+          "Description": "Uber (airport <--> hotel)",
+          "TotalAmount": 70.0
+        },
+        {
+          "FromDate": "2018-01-13",
+          "ToDate": null,
+          "ApprovalStatus": "pending",
+          "Description": "Moo Moo Steakhouse - Business Development Dinner",
+          "TotalAmount": 623.0
+        }
+      ]
+    },
+    {
+      "PeriodEnd": "2018-01-31",
+      "Expenses": [
+        {
+          "FromDate": "2018-01-01",
+          "ToDate": "2018-01-31",
+          "ApprovalStatus": "pending",
+          "Description": "Mobile Phone",
+          "TotalAmount": 119.0
+        },
+        {
+          "FromDate": "2018-01-17",
+          "ToDate": null,
+          "ApprovalStatus": "pending",
+          "Description": "Australian Open Tickets - Rod Laver Arena",
+          "TotalAmount": 280.0
+        }
+      ]
+    }
+  ],
+  "Projects": [
+    {
+      "Code": "AMG7A007",
+      "Description": "Wayne Enterprises - new Fusion Power"
+    },
+    {
+      "Code": "BMWJU099",
+      "Description": "RAD - Building Cool Stuff"
+    },
+    {
+      "Code": "AMA9903A",
+      "Description": "LexCorp BD FY 18"
+    },
+    {
+      "Code": "AMA9903B",
+      "Description": "LexCorp Market Development"
+    },
+    {
+      "Code": "N6662111",
+      "Description": "Australian CTO Office"
+    },
+    {
+      "Code": "GTH1V005",
+      "Description": "RC99 LexCorp Digital"
+    },
+    {
+      "Code": "N7526325",
+      "Description": "Training Participant"
+    },
+    {
+      "Code": "Z309999",
+      "Description": "Career Counseling / Annual Process"
+    },
+    {
+      "Code": "B3010171",
+      "Description": "Conference Presenter"
+    },
+    {
+      "Code": "A304515",
+      "Description": "Queen Industries - Arrows"
+    },
+    {
+      "Code": "OL1NK1",
+      "Description": "Project Galahad (LinkOne)"
+    },
+    {
+      "code": "971Z01",
+      "description": "Carers Leave"
+    },
+    {
+      "code": "952Z02",
+      "description": "Compassionate Leave"
+    },
+    {
+      "code": "910Z11",
+      "description": "Corporate Citizenship Volunteering"
+    },
+    {
+      "code": "913Z01",
+      "description": "Flex Leave"
+    },
+    {
+      "code": "910Z01",
+      "description": "Jury Duty"
+    },
+    {
+      "code": "950Z01",
+      "description": "Long Service Leave"
+    },
+    {
+      "code": "990Z01",
+      "description": "Maternity Leave"
+    },
+    {
+      "code": "057Z01",
+      "description": "Parental Leave"
+    },
+    {
+      "code": "050Z02",
+      "description": "Public Holiday"
+    },
+    {
+      "code": "050Z03",
+      "description": "Sick Leave"
+    },
+    {
+      "code": "003Z01",
+      "description": "Unpaid Leave"
+    },
+    {
+      "code": "003Z02",
+      "description": "Unpaid Sick Leave"
+    }
+  ]
+}

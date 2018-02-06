@@ -31,21 +31,22 @@ Now, without preloading every an exhaustive list of project code and project des
 >9.5 hours on AZ789AB
 
 I had a hard time training LUIS to recognise arbitrary project descriptions (or codes) within utterances. LUIS recommends providing about 5 examples of what a user might say (utterances) for an intent. 
-To match all of the projects in the demo dataset I found the number of utterances kept creeping up, and up, and up. I wasn't fully comfortable with that approach because the more utterances you provide, I think, the harder it is to tell how effective each individual utterance is in helping LUIS recognise an intent.
+To match all of the projects in the demo dataset I found the number of utterances kept creeping up, and up, and up.  
+I wasn't fully comfortable with that approach because the more utterances you provide, I think, the harder it is to tell how effective each individual utterance is in helping LUIS recognise an intent.
 And, with each entry there were some inherent assumptions about the form of what project descriptions and codes look like, and it was really a guessing game, e.g. maybe if I add a description that contains a noun and a verb it will recognise that, and so on. In a larger real-world data sample I expect some projects may not be recognised and slip through. 
 What I found enhanced LUIS extraction/recognition of projects was to really emphasize it, ironically, using the markdown emphasize syntax \__the project I want you to recognize LUIS\__
-Of course it was the same effect if I used another convention, like @mention or #hashtag, but those are both taken and in messenger (or any chat context) they do have their own meaning. So I've gone with the emphasis: \__project description or code inside here\__
->Assign 8h to \__project 404\__
->8h on \__RAD\__ yesterday
+Of course it was the same effect if I used another convention, like @mention or #hashtag, but those are both taken and in messenger (or any chat context) they do have their own meaning. So I've gone with the emphasis: \__project description or code inside here\__  
+>Assign 8h to \__project 404\__  
+>8h on \__RAD\__ yesterday  
 
-Now, there's also the notion of standing projects such as sick leave, annual leave, etc. These ones are captured with the help of a List entity so can be more easily recognised within an intent and don't require to be escaped in the \__project\__ emphasis convention. It doesn't hurt if you do, I was __sick__ yesterday; the bot is wired-up to give precedence to the standing project - but that's just an implementation.
+Now, there's also the notion of standing projects such as sick leave, annual leave, etc. These ones are captured with the help of a List entity so can be more easily recognised within an intent and don't require to be escaped in the \__project\__ emphasis convention. It doesn't hurt if you do, I was __sick__ yesterday; the bot is wired-up to give precedence to the standing project - but that's just an implementation.  
 The reason I like this approach is because it takes the raw project term/text the user provides in an utterance, and uses as a basis to perform a multi-facet fuzzy-search on projects to narrow down the matches, hopefully, to 1, or a few. Because there's too many to present all at once :) This helps account for typos, among other things, and I think really enhances the likelyness of matching a project.  
 
 Another approach is to load all project codes and descriptions and variations (such as ngrams), to build a List Entity, which could act somewhat like a search index. But list-Entity-item matches in LUIS are exact (not-fuzzy), so it's not a silverbullet. Maybe The MS Bot team will add a fuzzy option for List Entity items in the future? If you're interested in this approach then check out this _BneDev.TimesheetNinjaBot.Controllers.DefaultController.GetProjectSearchListEntity_. You can adapt this export to build up the List Entity/Search Index and transform to the simple format required for loading a list entity in LUIS, see <https://docs.microsoft.com/pt-br/azure/cognitive-services/luis/add-entities>. _admittedly I almost gave up training LUIS to recognise projects, and started down this path, but my preferred approach got me the outcome I wanted in the end :)_  
 
 I also tried utterances that used the term 'project' excessively, it still didn't seem to be as effective as a syntactical convention like @mention, #hastag or _emphasis_, and it certainly isn't as natural or concise to type out all the time:
->Assign 8 hours to project \__RAD\__ yesterday
->I worked on 8 hours on the project at \__Carman's\__
+>Assign 8 hours to project \__RAD\__ yesterday  
+>I worked on 8 hours on the project at \__Carman's\__  
 
 This means assigning time via a voice command is a little cumbersome, requiring two-steps, aligning more to an IVR-esque experience.
 
@@ -70,9 +71,7 @@ See _Management_ section below for links to help you through these steps.
 Here's a collection of links you'll find useful through out the DEV-TEST and operational cycle:
 Manage Bot/Registration Here: <https://dev.botframework.com/>  
 Manage App of the Bot: <https://apps.dev.microsoft.com/> (provides access to things like making the App available as a web API, a requirement for registering with Skype for Business Online)  
-[Creating a Skype for Business Bot](https://msdn.microsoft.com/en-us/skype/skype-for-business-bot-framework/docs/overview#create-bot) - A good end-to-end guide - from registering with the MS Bot Framework to Adding to Skype for Business (O365 tenant). _It might also be possible to this via [Register on Skype for Business](https://skypeappregistration.azurewebsites.net/) but it didn't seem to work, it is a PREVIEW feature)_  
 Manage LUIS model: <https://www.luis.ai/applications/{GUID}/> where GUID is your LUIS model identifier  
-Configure direct Line Channel (for voice via web chat): <https://docs.microsoft.com/en-us/bot-framework/bot-service-channel-connect-directline>
 Azure Resource Group: <https://portal.azure.com/#resource/subscriptions/{GUID}/resourceGroups/{RESOURCE_GROUP}/overview>  where GUID is your Azure subscription ID & RESOURCE_GROUP is the resource group where your bot is contained
 Should you consider deploying to O365 (a DEV tenant, or your PRODUCTION tenant), that's here: <https://aka.ms/admincenter> && end user access: <https://portal.office.com>  
 App Service: <https://TODO.azurewebsites.net>
