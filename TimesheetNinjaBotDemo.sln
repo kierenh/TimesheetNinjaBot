@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BneDev.TimesheetNinja.Bot", "TimesheetNinjaBot\BneDev.TimesheetNinja.Bot\BneDev.TimesheetNinja.Bot.csproj", "{1DA86D98-282D-4450-8E0D-AD4725737E6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BneDev.TimesheetNinja.Bot.Api", "TimesheetNinjaBot\BneDev.TimesheetNinja.Bot.Api\BneDev.TimesheetNinja.Bot.Api.csproj", "{2FC8EC40-D0E3-461A-86FA-28FA24686FD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BneDev.TimesheetNinja.Bot.Builder", "TimesheetNinjaBot\BneDev.TimesheetNinja.Bot.Builder\BneDev.TimesheetNinja.Bot.Builder.csproj", "{14C20178-F22E-4F96-8E96-F045B196B034}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BneDev.TimesheetNinja.Common", "TimesheetNinjaBot\BneDev.TimesheetNinja.Common\BneDev.TimesheetNinja.Common.csproj", "{04B18CDB-A161-4E22-8639-23005154B197}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Solution Items", ".Solution Items", "{A9B5B693-36FF-4F93-ABFA-E4A46D16766D}"
+	ProjectSection(SolutionItems) = preProject
+		CodeAnalysis.ruleset = CodeAnalysis.ruleset
+		GlobalAssemblyInfo.cs = GlobalAssemblyInfo.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DA86D98-282D-4450-8E0D-AD4725737E6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DA86D98-282D-4450-8E0D-AD4725737E6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DA86D98-282D-4450-8E0D-AD4725737E6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DA86D98-282D-4450-8E0D-AD4725737E6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FC8EC40-D0E3-461A-86FA-28FA24686FD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FC8EC40-D0E3-461A-86FA-28FA24686FD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FC8EC40-D0E3-461A-86FA-28FA24686FD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FC8EC40-D0E3-461A-86FA-28FA24686FD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14C20178-F22E-4F96-8E96-F045B196B034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14C20178-F22E-4F96-8E96-F045B196B034}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14C20178-F22E-4F96-8E96-F045B196B034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14C20178-F22E-4F96-8E96-F045B196B034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04B18CDB-A161-4E22-8639-23005154B197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04B18CDB-A161-4E22-8639-23005154B197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04B18CDB-A161-4E22-8639-23005154B197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04B18CDB-A161-4E22-8639-23005154B197}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {487F805C-5588-4876-AB44-4E5C17896C84}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,33 @@
+﻿html {
+    position: relative;
+    height: 100%;
+    font-family: 'Segoe UI';
+}
+
+body, h1, h2 {
+    color: #232732;
+}
+
+.web-chat {
+    min-height: 75%;
+    width: 100%;
+}
+
+.carousel-inner {
+    min-height: 400px;
+}
+
+.carousel-caption {
+    top: 30%;
+    bottom: unset;
+}
+
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+footer {
+    color: #6c757d !important;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
