@@ -176,15 +176,7 @@ namespace BneDev.TimesheetNinja.Bot.Builder.Dialogs
                 }
             }
 
-            if (IsDemoMode && (String.IsNullOrEmpty(this.Form.Project) && projects.Count() > 5))
-            {
-                await context.PostAsync(Resources.Message_Demo_Projects);
-                this.projects = projects.Take(5).ToDictionary(x => x.Code, x => x, StringComparer.OrdinalIgnoreCase);
-            }
-            else
-            {
-                this.projects = projects.ToDictionary(x => x.Code, x => x, StringComparer.OrdinalIgnoreCase);
-            }
+            this.projects = projects.ToDictionary(x => x.Code, x => x, StringComparer.OrdinalIgnoreCase);
         }
 
         protected override async Task ProcessForm(IDialogContext context)

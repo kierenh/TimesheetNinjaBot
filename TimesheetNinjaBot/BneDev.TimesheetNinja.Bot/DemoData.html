@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Timesheet Ninja Bot Demo</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css" />
+
+    <style>
+        html {
+            font-family: 'Segoe UI';
+        }
+    </style>
+</head>
+<body>
+    <div class="container fill-height">
+        <div class="row">
+            <main class="col-xl-12" role="main">
+                <div>
+                    <h1>Demo Data</h1>
+                    <p>This page provides a summary of the demo data so you can submit your mocked up timesheet and know what to ask the bot about.</p>
+                </div>
+                <section>
+                    <h2>Projects</h2>
+                    <table id="projects" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th data-field="Code">Code</th>
+                                <th data-field="Description">Description</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </section>
+                <section>
+                    <h2>Timesheets</h2>
+                    <!--<table id="timesheets" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th data-field="PurchaseRequisitionNumber">Purchase Req Number</th>
+                                <th data-field="PurchaseOrderNumber">PO Number</th>
+                                <th data-field="Status">Status</th>
+                                <th data-field="ApproverDisplayName">Approver Display Name</th>
+                                <th data-field="ApproverEmail">Approver Email</th>
+                                <th data-field="PurchasingOfficerDisplayName">Purchasing Officer Display Name</th>
+                                <th data-field="PurchasingOfficerEmail">Purchasing Officer Email</th>
+                                <th data-field="ExceededNotifications">Exceeded Notifications</th>
+                            </tr>
+                        </thead>
+                    </table>-->
+                </section>
+
+            </main>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+    <script>
+        var uri = 'api/default/demodata';
+
+        // Bootstrap table from data
+        // http://issues.wenzhixin.net.cn/bootstrap-table/#options/from-data.html
+        // http://jsfiddle.net/wenyi/e3nk137y/13/
+
+        jQuery(document).ready(function () {
+            // Send an AJAX request
+            jQuery.getJSON(uri)
+                .done(function (data) {
+                    jQuery('#projects').bootstrapTable({
+                        data: data.Projects
+                    });
+                    jQuery('#timesheets').bootstrapTable({
+                        data: data.Timesheets
+                    });
+                    jQuery('#expenseSheets').bootstrapTable({
+                        data: data.ExpenseSheets
+                    });
+                });
+        });
+    </script>
+</body>
+</html>

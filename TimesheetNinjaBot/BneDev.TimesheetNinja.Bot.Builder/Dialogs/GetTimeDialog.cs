@@ -45,10 +45,10 @@ namespace BneDev.TimesheetNinja.Bot.Builder.Dialogs
             var summaryText = String.Format(CultureInfo.CurrentCulture, Resources.Message_PeriodSummaryText, periodEnd, time.Status, hoursWorked, workScheduleHours);
             if (dailyTimeEntries.Any())
             {
-                var tableHeader = new[] { " WBS| Date| Hours", "---| ---| ---" };
-                var tableRows = dailyTimeEntries.Any() ? dailyTimeEntries.Select(y => String.Join("| ", y.taskNumber, y.date.ToString("dd/MM", CultureInfo.CurrentCulture), y.hours)) : Enumerable.Empty<string>();
+                var tableHeader = new[] { "|WBS | Date| Hours|", "|:--- | ---:| ---:|" };
+                var tableRows = dailyTimeEntries.Any() ? dailyTimeEntries.Select(y => $"|{y.taskNumber} | {y.date.ToString("dd/MM", CultureInfo.CurrentCulture)}| {y.hours}|") : Enumerable.Empty<string>();
                 var table = tableHeader.Concat(tableRows);
-                await context.PostAsync(summaryText + $"{Environment.NewLine}  | " + String.Join($" |  {Environment.NewLine}", table));
+                await context.PostAsync($"{summaryText}  {Environment.NewLine}{String.Join($"{Environment.NewLine}", table)}");
             }
             else
             {

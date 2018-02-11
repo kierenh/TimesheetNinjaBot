@@ -208,8 +208,9 @@ namespace BneDev.TimesheetNinja.Bot.Builder.Dialogs
                         MenuIntents.LogTime,
                         MenuIntents.GetExpenses,
                         MenuIntents.AddExpense,
-                        MenuIntents.Submit,
-                        MenuIntents.Logout,
+                        //TODO: Conditionally enable these based on IsDemoMode
+                        //MenuIntents.Submit,
+                        //MenuIntents.Logout,
                         MenuIntents.ShowDisclaimer
                     }, Resources.Message_Menu_Authenticated, attempts: 2);
                 }

@@ -73,10 +73,10 @@ namespace BneDev.TimesheetNinja.Bot.Builder.Dialogs
             }
             else
             {
-                var tableHeader = new[] { "| WBS| Amount| Date", "| ---| ---| ---" };
-                var tableRows = expenses.Expenses.Select(x => "| " + String.Join("| ", x.Description, x.TotalAmount, x.GetDateDescription()));
+                var tableHeader = new[] { "|WBS | Amount| Date|", "|:--- | ---:| ---:|" };
+                var tableRows = expenses.Expenses.Select(x => $"|{x.Description} | {x.TotalAmount:C}| {x.GetDateDescription()}|");
                 var table = tableHeader.Concat(tableRows);
-                var tableSummary = String.Join($" |  {Environment.NewLine}", table);
+                var tableSummary = String.Join($"{Environment.NewLine}", table);
                 status = String.Format(CultureInfo.CurrentCulture, Resources.Message_ExpensesUnpaid, periodEnd, outstanding, total, tableSummary);
             }
 

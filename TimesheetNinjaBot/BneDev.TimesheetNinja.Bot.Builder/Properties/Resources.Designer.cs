@@ -205,33 +205,12 @@ namespace BneDev.TimesheetNinja.Bot.Builder.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to It&apos;s easy to assign time, you can ask me like this:  
-        ///- 8h on \__{0}\__  
-        ///- I&apos;m on vacation from 1/1/2018 to 7th of Jan  
-        ///If you get really stuck, just type **Menu** and I&apos;ll guide you through it.
-        /// </summary>
-        public static string Message_AddTimeHelp {
-            get {
-                return ResourceManager.GetString("Message_AddTimeHelp", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Uh-oh, there&apos;s a problem:  
         ///{0}.
         /// </summary>
         public static string Message_BusinessErrors {
             get {
                 return ResourceManager.GetString("Message_BusinessErrors", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to I think you want to log time but I don&apos;t recognise that project. You can choose one of your &quot;top 5&quot; projects (simplification for demo, see _demo notes_) or go back by typing _back_..
-        /// </summary>
-        public static string Message_Demo_Projects {
-            get {
-                return ResourceManager.GetString("Message_Demo_Projects", resourceCulture);
             }
         }
         
@@ -264,7 +243,7 @@ namespace BneDev.TimesheetNinja.Bot.Builder.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your expenses for period ending **{0:dd/MM}** have been paid. The total amount was {1:C}..
+        ///   Looks up a localized string similar to Your expenses for period ending **{0:ddd dd/MM}** have been paid. The total amount was {1:C}..
         /// </summary>
         public static string Message_ExpensesPaid {
             get {
@@ -282,7 +261,7 @@ namespace BneDev.TimesheetNinja.Bot.Builder.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your expenses for period ending **{0:dd/MM}** have not been fully paid.  
+        ///   Looks up a localized string similar to Your expenses for period ending **{0:ddd dd/MM}** have not been fully paid.  
         ///There&apos;s {1:C} outstanding of {2:C} total amount expected.  
         ///{3}.
         /// </summary>
@@ -336,7 +315,7 @@ namespace BneDev.TimesheetNinja.Bot.Builder.Properties {
         ///- Log 8 hours to \__project\__ (where \__project\__ is an intelligent search against your assigned projects)  
         ///- Have my expenses been paid  
         ///- Claim my mobile expense  
-        ///If you get really stuck, just type **Menu**.
+        ///If you&apos;re still not sure where to start, just type **Menu**.
         /// </summary>
         public static string Message_Greeting_Authenticated {
             get {
@@ -390,7 +369,7 @@ namespace BneDev.TimesheetNinja.Bot.Builder.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your timesheet for period ending {0:ddd dd/MM} (Status: {1})  
+        ///   Looks up a localized string similar to Your timesheet for period ending {0:ddd dd/MM} _(Status: {1})_  
         ///You&apos;ve logged {2} hours / {3} hours (scheduled).
         /// </summary>
         public static string Message_PeriodSummaryText {

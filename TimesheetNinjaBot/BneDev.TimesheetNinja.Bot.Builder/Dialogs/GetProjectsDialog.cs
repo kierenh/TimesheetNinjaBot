@@ -24,11 +24,12 @@ namespace BneDev.TimesheetNinja.Bot.Builder.Dialogs
             var projectService = this.DialogServices.TimesheetApis().ProjectApi(session.AuthToken);
             var projects = await projectService.GetAll();
 
-            var projectsSummary = $"|Description |Code |  {Environment.NewLine}|--- |--- |{Environment.NewLine}  "
-                + String.Join($" |  {Environment.NewLine}", projects.OrderBy(x => x.Description).Select((x, i) => $"|{x.Description} |{x.Code}"));
+            var tableHeader = new[] { $"|Description |Code |", $"|:--- |:--- |" };
+            var tableRows = projects.OrderBy(x => x.Description).Select((x, i) => $"|{x.Description} |{x.Code} |");
+            var table = tableHeader.Concat(tableRows);
+            var tableText = String.Join(Environment.NewLine, table);
 
-            await context.PostAsync(String.Format(CultureInfo.CurrentCulture, Resources.Message_GetProjectsSummary, projectsSummary));
-            await context.PostAsync(String.Format(CultureInfo.CurrentCulture, Resources.Message_AddTimeHelp, "Wayne Enterprises", "A304515"));
+            await context.PostAsync(String.Format(CultureInfo.CurrentCulture, Resources.Message_GetProjectsSummary, tableText));
 
             context.Done((object)null);
         }
