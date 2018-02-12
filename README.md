@@ -33,14 +33,16 @@ Now, without preloading every an exhaustive list of project code and project des
 
 I had a hard time training LUIS to recognise arbitrary project descriptions (or codes) within utterances. LUIS recommends providing about 5 examples of what a user might say (utterances) for an intent. 
 To match all of the projects in the demo dataset I found the number of utterances kept creeping up, and up, and up.  
-I wasn't fully comfortable with that approach because the more utterances you provide, I think, the harder it is to tell how effective each individual utterance is in helping LUIS recognise an intent.
-And, with each entry there were some inherent assumptions about the form of what project descriptions and codes look like, and it was really a guessing game, e.g. maybe if I add a description that contains a noun and a verb it will recognise that, and so on. In a larger real-world data sample I expect some projects may not be recognised and slip through. 
+I wasn't fully comfortable with that approach because the more utterances you provide, I think, the harder it is to tell how effective each individual utterance is in helping LUIS recognise an intent. 
+And, with each entry there were some inherent assumptions about the form of what project descriptions and codes look like, and it was really a guessing game, e.g. maybe if I add a description that contains a noun and a verb it will recognise that, and so on. In a larger real-world data sample I expect some projects may not be recognised and slip through.  
+
 What I found enhanced LUIS extraction/recognition of projects was to really emphasize it, ironically, using the markdown emphasize syntax \__the project I want you to recognize LUIS\__
 Of course it was the same effect if I used another convention, like @mention or #hashtag, but those are both taken and in messenger (or any chat context) they do have their own meaning. So I've gone with the emphasis: \__project description or code inside here\__  
 >Assign 8h to \__project 404\__  
 >8h on \__RAD\__ yesterday  
 
 There's also the notion of standing projects such as sick leave, annual leave, etc. These ones are captured with the help of a List entity so can be more easily recognised within an intent and don't require to be escaped in the \__project\__ emphasis convention. It doesn't hurt if you do, I was __sick__ yesterday; the bot is wired-up to give precedence to the standing project - but that's just an implementation.  
+
 The reason I like this approach is because it takes the raw project term/text the user provides in an utterance, and uses as a basis to perform a multi-facet fuzzy-search on projects to narrow down the matches, hopefully, to 1, or a few. Because there's too many to present all at once :) This helps account for typos, among other things, and I think really enhances the likelyness of matching a project.  
 
 Another approach is to load all project codes and descriptions and variations (such as ngrams), to build a List Entity, which could act somewhat like a search index. But list-Entity-item matches in LUIS are exact (not-fuzzy), so it's not a silverbullet. Maybe The MS Bot team will add a fuzzy option for List Entity items in the future? If you're interested in this approach then check out this _BneDev.TimesheetNinjaBot.Controllers.DefaultController.GetProjectSearchListEntity_. You can adapt this export to build up the List Entity/Search Index and transform to the simple format required for loading a list entity in LUIS, see <https://docs.microsoft.com/pt-br/azure/cognitive-services/luis/add-entities>. _admittedly I almost gave up training LUIS to recognise projects, and started down this path, but my preferred approach got me the outcome I wanted in the end :)_  
@@ -49,10 +51,15 @@ I also tried utterances that used the term 'project' excessively, it still didn'
 >Assign 8 hours to project \__RAD\__ yesterday  
 >I worked on 8 hours on the project at \__Carman's\__  
 
-This means assigning time via a voice command is a little cumbersome, requiring two-steps, aligning more to an IVR-esque experience.
+This means assigning time via a voice command is a little cumbersome (because voice recognition won't pick up the emphasis in your voice). It can be done, but recording it will take you down the IVR-esque path. Something like:  
+>You: Assign 8h
+>Bot: What project?
+>You: _LexCorp_
 
 # Getting Started
-`git clone https://github.com/kierenh/TimesheetNinjaBot.git`
+```
+git clone https://github.com/kierenh/TimesheetNinjaBot.git
+```
 
 # Build and Test
 At a super high-level:
