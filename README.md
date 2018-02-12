@@ -4,17 +4,18 @@ What are you waiting for, check out the [Timesheet Ninja Bot Live Demo](https://
 I hope this inspires you to explore conversation as a platform. If something should be as simple as sending a text (or responding to voice for that matter), then, maybe it should be, and is especially cool if you want a more human-like interaction.  
 
 For developers, what else can you get from this prototype?
-- A sample technical architecture for building out bot experiences designed to cater for new users and power users alike with a hybrid IVR-esque-menu and natural language approach. The IVR-esque-menu approach is great for getting started but once users are acquainted with what your bot can do chances are they'll want to get straight to the point and ask for what they need, their way.  
+- A sample for building out bot experiences designed to cater for new users and power users alike with a hybrid IVR-esque-menu and natural language approach. The IVR-esque-menu approach is great for getting started but once users are acquainted with what your bot can do chances are they'll want to get straight to the point and ask for what they need, their way.  
 - Help you gauge how much LUIS does for you versus where you have to take over. For example, think about how you train LUIS to recognize synonyms for a time reporting period but you still have to convert-to or calculate an actual period start/end dates. See LuisResultExtensions.cs  
 - Leverage the base classes & framework bits to more rapidly build forms that help you take care of all the bits around the edges. For example, bootstrapping forms with data extracted from LUIS intents so you only need to prompt for missing fields, handling users' cancelling out of a form flow (or going back) versus the form aborting in the case where a backend API is unavailable, see FormDialogBase<T>  
 - See some basic conversational patterns in action, for example, help the user without excessively reconfirming the user's intent or decision, but, providing an option to _Undo_ and thus helping you to avoid common pitfalls of [bot navigation design](https://docs.microsoft.com/en-us/bot-framework/bot-service-design-navigation) _(an entertaining read by the way)_
 - Deploy Bot resources in Azure and setup CI/CD to deploy your bot and reach the users on their channel (like Facebook Messenger, Slack, and so on). May the Agile and DevOps be with you...  
 
-## Potential Enhancementschallenges
+## Potential Enhancements
 - Going beyond simple rich text / markdown (MD) with Adapative Cards
 - Add speech to the web chat channel
 - Localization (e.g. currently accepts input in your locale, but is hard-wired to present back in en-AU format)
- 
+- Start-up performance - Improve the response time of the first interaction (note: App Service is always on but I think need to hook in to the ASP.NET start-up pipeline)
+
 ## Challenges
 - Training LUIS to match projects, which are referred to by arbitrary descriptions of variable length. Consider a few ways you might log time to a project:
 >Log 8h on &lt;vandelay industries&gt; <-- By client name
@@ -39,7 +40,7 @@ Of course it was the same effect if I used another convention, like @mention or 
 >Assign 8h to \__project 404\__  
 >8h on \__RAD\__ yesterday  
 
-Now, there's also the notion of standing projects such as sick leave, annual leave, etc. These ones are captured with the help of a List entity so can be more easily recognised within an intent and don't require to be escaped in the \__project\__ emphasis convention. It doesn't hurt if you do, I was __sick__ yesterday; the bot is wired-up to give precedence to the standing project - but that's just an implementation.  
+There's also the notion of standing projects such as sick leave, annual leave, etc. These ones are captured with the help of a List entity so can be more easily recognised within an intent and don't require to be escaped in the \__project\__ emphasis convention. It doesn't hurt if you do, I was __sick__ yesterday; the bot is wired-up to give precedence to the standing project - but that's just an implementation.  
 The reason I like this approach is because it takes the raw project term/text the user provides in an utterance, and uses as a basis to perform a multi-facet fuzzy-search on projects to narrow down the matches, hopefully, to 1, or a few. Because there's too many to present all at once :) This helps account for typos, among other things, and I think really enhances the likelyness of matching a project.  
 
 Another approach is to load all project codes and descriptions and variations (such as ngrams), to build a List Entity, which could act somewhat like a search index. But list-Entity-item matches in LUIS are exact (not-fuzzy), so it's not a silverbullet. Maybe The MS Bot team will add a fuzzy option for List Entity items in the future? If you're interested in this approach then check out this _BneDev.TimesheetNinjaBot.Controllers.DefaultController.GetProjectSearchListEntity_. You can adapt this export to build up the List Entity/Search Index and transform to the simple format required for loading a list entity in LUIS, see <https://docs.microsoft.com/pt-br/azure/cognitive-services/luis/add-entities>. _admittedly I almost gave up training LUIS to recognise projects, and started down this path, but my preferred approach got me the outcome I wanted in the end :)_  
@@ -51,7 +52,7 @@ I also tried utterances that used the term 'project' excessively, it still didn'
 This means assigning time via a voice command is a little cumbersome, requiring two-steps, aligning more to an IVR-esque experience.
 
 # Getting Started
-`git clone https://github.com/kierenh/TimesheetNinjaBot.git 
+`git clone https://github.com/kierenh/TimesheetNinjaBot.git`
 
 # Build and Test
 At a super high-level:
@@ -62,6 +63,7 @@ At a super high-level:
 1. Link Bot Service to LUIS
 1. Update web.config with Microsoft App ID and LUIS configuration settings
 1. Build and run the Bot locally using the Microsoft Bot Framework emulator
+1. Update the iframe src with your Bot Web Channel SAS
 1. Import the VSTS Build and Release templates
 1. Commit, push to trigger a Build and Release which deploys the Azure Bot Service
 
