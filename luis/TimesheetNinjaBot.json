@@ -1,0 +1,579 @@
+{
+  "luis_schema_version": "2.1.0",
+  "versionId": "0.1",
+  "name": "TimesheetNinjaBot",
+  "desc": "Timesheet Ninja Bot - A prototype to explore a conversational interface for time and expenses.",
+  "culture": "en-us",
+  "intents": [
+    {
+      "name": "AccessToken.Set"
+    },
+    {
+      "name": "Expenses.AddExpense"
+    },
+    {
+      "name": "Expenses.GetExpenses"
+    },
+    {
+      "name": "Greet"
+    },
+    {
+      "name": "Menu.Show"
+    },
+    {
+      "name": "None"
+    },
+    {
+      "name": "Timesheet.AddTime"
+    },
+    {
+      "name": "Timesheet.AddTimeStraightEights"
+    },
+    {
+      "name": "Timesheet.GetDueDate"
+    },
+    {
+      "name": "Timesheet.GetProjectsUsedForTime"
+    },
+    {
+      "name": "Timesheet.GetTime"
+    },
+    {
+      "name": "Undo"
+    }
+  ],
+  "entities": [
+    {
+      "name": "Wbs"
+    }
+  ],
+  "composites": [],
+  "closedLists": [
+    {
+      "name": "ExpenseType",
+      "subLists": [
+        {
+          "canonicalForm": "hotel",
+          "list": [
+            "travel"
+          ]
+        },
+        {
+          "canonicalForm": "meal",
+          "list": [
+            "entertainment",
+            "lunch"
+          ]
+        },
+        {
+          "canonicalForm": "mobile",
+          "list": [
+            "internet",
+            "telecom",
+            "cell phone",
+            "mobile phone"
+          ]
+        },
+        {
+          "canonicalForm": "taxi",
+          "list": [
+            "cab",
+            "uber"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "subLists": [
+        {
+          "canonicalForm": "List",
+          "list": []
+        },
+        {
+          "canonicalForm": "Table",
+          "list": []
+        }
+      ]
+    },
+    {
+      "name": "Period",
+      "subLists": [
+        {
+          "canonicalForm": "Current",
+          "list": [
+            "latest",
+            "most recent"
+          ]
+        },
+        {
+          "canonicalForm": "Previous",
+          "list": [
+            "last",
+            "last time",
+            "previously"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reimbursed",
+      "subLists": [
+        {
+          "canonicalForm": "paid",
+          "list": [
+            "reimbursed",
+            "recouped"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WbsStanding",
+      "subLists": [
+        {
+          "canonicalForm": "Sick",
+          "list": [
+            "ill",
+            "not well",
+            "unwell",
+            "sicky"
+          ]
+        },
+        {
+          "canonicalForm": "Training",
+          "list": [
+            "training and development",
+            "training course",
+            "conference",
+            "professional development",
+            "PD"
+          ]
+        },
+        {
+          "canonicalForm": "Carers Leave",
+          "list": [
+            "carers"
+          ]
+        },
+        {
+          "canonicalForm": "BD",
+          "list": [
+            "bd work",
+            "market development",
+            "business development"
+          ]
+        },
+        {
+          "canonicalForm": "Other Approved Absence",
+          "list": [
+            "personal day"
+          ]
+        },
+        {
+          "canonicalForm": "Annual Leave",
+          "list": [
+            "holiday",
+            "vacation",
+            "al",
+            "holidays"
+          ]
+        },
+        {
+          "canonicalForm": "career counseling",
+          "list": [
+            "annual review process",
+            "ca meeting",
+            "ca lunch"
+          ]
+        },
+        {
+          "canonicalForm": "leave",
+          "list": []
+        }
+      ]
+    }
+  ],
+  "bing_entities": [
+    "datetimeV2",
+    "ordinal"
+  ],
+  "model_features": [
+    {
+      "name": "Greeting",
+      "mode": true,
+      "words": "hi,hello,hey there,greetings,hey,hi there,G ' Day,hola,bonjour",
+      "activated": true
+    },
+    {
+      "name": "SubmissionDeadline",
+      "mode": true,
+      "words": "Deadline,Cut off,Due",
+      "activated": true
+    }
+  ],
+  "regex_features": [
+    {
+      "name": "WbsPattern",
+      "pattern": "[\\w\\d\\s]+",
+      "activated": true
+    }
+  ],
+  "utterances": [
+    {
+      "text": "hi",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "undo",
+      "intent": "Undo",
+      "entities": []
+    },
+    {
+      "text": "menu",
+      "intent": "Menu.Show",
+      "entities": []
+    },
+    {
+      "text": "list projects",
+      "intent": "Timesheet.GetProjectsUsedForTime",
+      "entities": []
+    },
+    {
+      "text": "g'day",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "show me my projects",
+      "intent": "Timesheet.GetProjectsUsedForTime",
+      "entities": []
+    },
+    {
+      "text": "show me my timesheet",
+      "intent": "Timesheet.GetTime",
+      "entities": []
+    },
+    {
+      "text": "revert",
+      "intent": "Undo",
+      "entities": []
+    },
+    {
+      "text": "when was my last sick day?",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "when is the deadline",
+      "intent": "Timesheet.GetDueDate",
+      "entities": []
+    },
+    {
+      "text": "straight eights",
+      "intent": "Timesheet.AddTimeStraightEights",
+      "entities": []
+    },
+    {
+      "text": "what did i do last time",
+      "intent": "Timesheet.GetTime",
+      "entities": []
+    },
+    {
+      "text": "show me my previous timesheet",
+      "intent": "Timesheet.GetTime",
+      "entities": []
+    },
+    {
+      "text": "show me my most recent timesheet",
+      "intent": "Timesheet.GetTime",
+      "entities": []
+    },
+    {
+      "text": "i have an access token",
+      "intent": "AccessToken.Set",
+      "entities": []
+    },
+    {
+      "text": "i had a personal day yesterday",
+      "intent": "Timesheet.AddTime",
+      "entities": []
+    },
+    {
+      "text": "i was sick on friday",
+      "intent": "Timesheet.AddTime",
+      "entities": []
+    },
+    {
+      "text": "i was on leave yesterday",
+      "intent": "Timesheet.AddTime",
+      "entities": []
+    },
+    {
+      "text": "what did i work on last time",
+      "intent": "Timesheet.GetTime",
+      "entities": []
+    },
+    {
+      "text": "have my expenses been paid",
+      "intent": "Expenses.GetExpenses",
+      "entities": []
+    },
+    {
+      "text": "check whether my expenses were paid for 12/1/2017",
+      "intent": "Expenses.GetExpenses",
+      "entities": []
+    },
+    {
+      "text": "add a meal expense",
+      "intent": "Expenses.AddExpense",
+      "entities": []
+    },
+    {
+      "text": "claim my hotel expense",
+      "intent": "Expenses.AddExpense",
+      "entities": []
+    },
+    {
+      "text": "show me my expenses for 13/10/2017",
+      "intent": "Expenses.GetExpenses",
+      "entities": []
+    },
+    {
+      "text": "review my expenses",
+      "intent": "Expenses.GetExpenses",
+      "entities": []
+    },
+    {
+      "text": "use an access token",
+      "intent": "AccessToken.Set",
+      "entities": []
+    },
+    {
+      "text": "when is the cut off for submitting my timesheet",
+      "intent": "Timesheet.GetDueDate",
+      "entities": []
+    },
+    {
+      "text": "have i submitted my timesheet",
+      "intent": "Timesheet.GetDueDate",
+      "entities": []
+    },
+    {
+      "text": "when is my timesheet due",
+      "intent": "Timesheet.GetDueDate",
+      "entities": []
+    },
+    {
+      "text": "review my timesheet for 12/01/2018",
+      "intent": "Timesheet.GetTime",
+      "entities": []
+    },
+    {
+      "text": "8h on _purple monkey yellow dishwasher_",
+      "intent": "Timesheet.AddTime",
+      "entities": [
+        {
+          "entity": "Wbs",
+          "startPos": 6,
+          "endPos": 38
+        }
+      ]
+    },
+    {
+      "text": "yesterday i worked on _project 404_",
+      "intent": "Timesheet.AddTime",
+      "entities": [
+        {
+          "entity": "Wbs",
+          "startPos": 22,
+          "endPos": 34
+        }
+      ]
+    },
+    {
+      "text": "assign 8 hours to _jdk129 - just do it_",
+      "intent": "Timesheet.AddTime",
+      "entities": [
+        {
+          "entity": "Wbs",
+          "startPos": 18,
+          "endPos": 38
+        }
+      ]
+    },
+    {
+      "text": "i worked on the _something something darkside_ project for 2 hours yesterday",
+      "intent": "Timesheet.AddTime",
+      "entities": [
+        {
+          "entity": "Wbs",
+          "startPos": 16,
+          "endPos": 45
+        }
+      ]
+    },
+    {
+      "text": "log 4h on _big bang_",
+      "intent": "Timesheet.AddTime",
+      "entities": [
+        {
+          "entity": "Wbs",
+          "startPos": 10,
+          "endPos": 19
+        }
+      ]
+    },
+    {
+      "text": "log 13 hours on _abcd9573_",
+      "intent": "Timesheet.AddTime",
+      "entities": [
+        {
+          "entity": "Wbs",
+          "startPos": 16,
+          "endPos": 25
+        }
+      ]
+    },
+    {
+      "text": "log 9h to the _kwijibo_ project",
+      "intent": "Timesheet.AddTime",
+      "entities": [
+        {
+          "entity": "Wbs",
+          "startPos": 14,
+          "endPos": 22
+        }
+      ]
+    },
+    {
+      "text": "log 8h on _t2_",
+      "intent": "Timesheet.AddTime",
+      "entities": [
+        {
+          "entity": "Wbs",
+          "startPos": 10,
+          "endPos": 13
+        }
+      ]
+    },
+    {
+      "text": "log 12.5 hours on _flux capacitor_",
+      "intent": "Timesheet.AddTime",
+      "entities": [
+        {
+          "entity": "Wbs",
+          "startPos": 18,
+          "endPos": 33
+        }
+      ]
+    },
+    {
+      "text": "assign 8 hours to _arrow go to market strategy_ project",
+      "intent": "Timesheet.AddTime",
+      "entities": [
+        {
+          "entity": "Wbs",
+          "startPos": 18,
+          "endPos": 46
+        }
+      ]
+    },
+    {
+      "text": "straight eights on _t3_",
+      "intent": "Timesheet.AddTimeStraightEights",
+      "entities": [
+        {
+          "entity": "Wbs",
+          "startPos": 19,
+          "endPos": 22
+        }
+      ]
+    },
+    {
+      "text": "all eights on _carman san diego_",
+      "intent": "Timesheet.AddTimeStraightEights",
+      "entities": [
+        {
+          "entity": "Wbs",
+          "startPos": 14,
+          "endPos": 31
+        }
+      ]
+    },
+    {
+      "text": "8s on _vanilla bean_",
+      "intent": "Timesheet.AddTimeStraightEights",
+      "entities": [
+        {
+          "entity": "Wbs",
+          "startPos": 6,
+          "endPos": 19
+        }
+      ]
+    },
+    {
+      "text": "have my expenses been paid for 1/30",
+      "intent": "Expenses.GetExpenses",
+      "entities": []
+    },
+    {
+      "text": "review my expenses for 1/30/2018",
+      "intent": "Expenses.GetExpenses",
+      "entities": []
+    },
+    {
+      "text": "log all my remaining hours to _jay-z_",
+      "intent": "Timesheet.AddTimeStraightEights",
+      "entities": [
+        {
+          "entity": "Wbs",
+          "startPos": 30,
+          "endPos": 36
+        }
+      ]
+    },
+    {
+      "text": "show me my timesheet for 12/30/2017",
+      "intent": "Timesheet.GetTime",
+      "entities": []
+    },
+    {
+      "text": "show me my timesheet for 31/12",
+      "intent": "Timesheet.GetTime",
+      "entities": []
+    },
+    {
+      "text": "last week i worked on _wayne enterprises_",
+      "intent": "Timesheet.AddTime",
+      "entities": [
+        {
+          "entity": "Wbs",
+          "startPos": 22,
+          "endPos": 40
+        }
+      ]
+    },
+    {
+      "text": "log all my remaining hours to annual leave",
+      "intent": "Timesheet.AddTimeStraightEights",
+      "entities": []
+    },
+    {
+      "text": "when was my last sick day",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "claim my mobile expense",
+      "intent": "Expenses.AddExpense",
+      "entities": []
+    },
+    {
+      "text": "i'm going on vacation from 01/01/2018 to 02/02/2018",
+      "intent": "Timesheet.AddTime",
+      "entities": []
+    }
+  ]
+}
